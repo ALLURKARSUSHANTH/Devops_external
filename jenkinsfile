@@ -1,41 +1,29 @@
-pipeline{
-	agent any
-    stages{
-       stage("checkout"){
-		steps{
-	checkout scm
-		}
-	}
-	stage("build"){
-		steps{
-			step{
-	bat "javac Calculator.java"
-	}
-	step{
-		bat "java Calculator"
-	}
-	step{
-		bat "2"
-	}
-	step{
-		bat "+"
-	}
-	step{
-		bat "7"
-	}
-		}
-	}
-	stage("success"){
-		steps{
-			step{
-			echo "Build Successful"
-			}
-		}
-}
-	}
-post{
-	always{
-		archiveArtifacts artifacts: '*.class', fingerprint: true
-	}
-}
+pipeline {
+    agent any
+
+    stages {
+        stage("Checkout") {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage("Build") {
+            steps {
+                bat "javac Calculator.java"  // For Windows agents
+            }
+        }
+
+        stage("Success") {
+            steps {
+                echo "Build Successful"
+            }
+        }
+    }
+
+    post {
+        always {
+            archiveArtifacts artifacts: '*.class', fingerprint: true
+        }
+    }
 }
