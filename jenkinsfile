@@ -15,14 +15,11 @@ pipeline{
 	}
     stage("Success"){
 	echo "Success"
-	steps{
-		bat "java Calculator"
 	}
-	}
-}
 }
 post{
 	always{
 		archiveArtifacts artifacts: '*.class', fingerprint: true
 	}
+}
 }
