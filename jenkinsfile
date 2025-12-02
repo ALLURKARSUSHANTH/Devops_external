@@ -5,7 +5,7 @@ pipeline{
 	checkout scm
 	}
 	Stage("build"){
-	bat "javac Calculator.java"
+	bat "javac Calculator.java",
 	bat "java Calculator"
 }
     Stage("Success"){
@@ -13,8 +13,8 @@ pipeline{
 }
 }
 post{
-always{
-	artifacts : archive.arctifacts
-}
+	always{
+		archiveArtifacts artifacts: '*.class', fingerprint: true
+	}
 }
 }
