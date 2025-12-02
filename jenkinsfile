@@ -8,13 +8,13 @@ pipeline{
 	bat "javac Calculator.java"
 	bat "java Calculator"
 }
-       Stage("Success"){
+    Stage("Success"){
 	echo "Success"
 }
 }
 post{
 always{
-	artifacts : archive.arctifacts/*
+	artifacts : archive.arctifacts
 }
 }
 }

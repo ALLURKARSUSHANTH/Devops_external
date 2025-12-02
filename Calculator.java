@@ -1,6 +1,6 @@
 import java.util.Scanner;
 public class Calculator{
-	public static void main(String[] args){
+	public static void  main(String[] args){
 		Scanner sc = new Scanner(System.in);
 		System.out.println("Enter Your first number: ");
 		double a = sc.nextDouble();
@@ -8,17 +8,26 @@ public class Calculator{
 		String op = sc.next();
 		System.out.println("Enter your second number: ");
 		double b = sc.nextDouble();
+		double c = 0;
 		switch(op){
-		case 1: "+";
-		 return a+b;
-		case 2: "-";
-		 return a-b;
-		case 3 :  "*";
-		 return a*b;
-		case 4 :"/";
-		 if(a==0||b==0) {return "Cannot divide by zero";}
-			  else{ return a/b;}
-		case "default" : return "Invalid Input";
+		case  "+" : c= (double)a+b;
+		System.out.println("The result is: "+c);
+		break;
+		case  "-" : c= (double)a-b;
+		System.out.println("The result is: "+c);
+		break;
+		case  "*" : c= (double)a*b;
+		System.out.println("The result is: "+c);
+		break;
+		case  "/" : if(b!=0){
+					c= (double)a/b;
+				  }
+				  else{
+					  System.out.println("Error: Division by zero");
+				  }
+		default : System.out.println("Invalid operation!");
 }
+		System.out.println("The result is: "+c);
+		sc.close();
 }
 }

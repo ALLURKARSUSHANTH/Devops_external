@@ -1,11 +1,9 @@
-FROM : open-jdk-17 As builder
-WORKDIR / app
+FROM open-jdk-17 as build
+WORKDIR /app
 COPY . .
 RUN javac Calculator.java
 
-FROM : open-jre
-WORKDIR / app
+FROM open-jre-17
+WORKDIR /app
 COPY . .
-RUN ["java"],["Calculator"]
-
-
+RUN ["java","Calculator"]
