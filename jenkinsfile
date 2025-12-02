@@ -14,9 +14,11 @@ pipeline{
 		}
 	}
     stage("Success"){
-	echo "Success"
-	}
+		steps{
+			echo "Build Successful"
+		}
 }
+	}
 post{
 	always{
 		archiveArtifacts artifacts: '*.class', fingerprint: true
