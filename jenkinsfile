@@ -1,0 +1,20 @@
+pipeline{
+	agent any
+    Stages{
+       Stage("checkout"){
+	checkout scm
+	}
+	Stage("build"){
+	bat "javac Calculator.java"
+	bat "java Calculator"
+}
+       Stage("Success"){
+	echo "Success"
+}
+}
+post{
+always{
+	artifacts : archive.arctifacts/*
+}
+}
+}
