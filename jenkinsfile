@@ -13,13 +13,6 @@ pipeline{
 	}
 		}
 	}
-	stage("success"){
-		steps{
-			step{
-			echo "Build Successful"
-			}
-		}
-}
 	}
 post{
 	always{
