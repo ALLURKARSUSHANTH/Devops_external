@@ -5,8 +5,10 @@ pipeline{
 	checkout scm
 	}
 	stage("build"){
+		steps{
 	bat "javac Calculator.java",
 	bat "java Calculator"
+	}
 }
     stage("Success"){
 	echo "Success"
