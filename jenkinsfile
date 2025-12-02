@@ -9,20 +9,20 @@ pipeline{
 	stage("build"){
 		steps{
 			step{
-	bat "javac Calculator.java",
+	bat "javac Calculator.java"
 	}
-	step{
-		bat "java Calculator"
-	}
-	}
+		}
 	}
     stage("Success"){
 	echo "Success"
-}
+	steps{
+		bat "java Calculator"
 	}
+	}
+}
+}
 post{
 	always{
 		archiveArtifacts artifacts: '*.class', fingerprint: true
 	}
-}
 }
