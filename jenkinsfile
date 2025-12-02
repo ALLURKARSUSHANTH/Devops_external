@@ -1,14 +1,14 @@
-Pipeline{
+pipeline{
 	agent any
-    Stages{
-       Stage("checkout"){
+    stages{
+       stage("checkout"){
 	checkout scm
 	}
-	Stage("build"){
+	stage("build"){
 	bat "javac Calculator.java",
 	bat "java Calculator"
 }
-    Stage("Success"){
+    stage("Success"){
 	echo "Success"
 }
 }
