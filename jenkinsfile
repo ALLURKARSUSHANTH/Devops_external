@@ -10,16 +10,16 @@ pipeline{
 		steps{
 			step{
 	bat "javac Calculator.java"
-	},
+	}
 	step{
 		bat "java Calculator"
-	},
+	}
 	step{
 		bat "2"
-	},
+	}
 	step{
 		bat "+"
-	},
+	}
 	step{
 		bat "7"
 	}
