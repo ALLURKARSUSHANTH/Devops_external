@@ -8,8 +8,11 @@ pipeline{
 	}
 	stage("build"){
 		steps{
+			step{
 	bat "javac Calculator.java",
-	bat "java Calculator"
+	}
+	steps{
+		bat "java Calculator"
 	}
 }
     stage("Success"){
